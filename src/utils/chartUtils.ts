@@ -97,7 +97,7 @@ export const getChartOptions = (
       },
       axisLabel: {
         rotate: 0,
-        interval: (index: number, value: string) => {
+        interval: (_: number, value: string) => {
           return value.endsWith(':00') && parseInt(value.split(':')[0]) % 2 === 0;
         },
         fontFamily: 'Arial',
@@ -107,7 +107,7 @@ export const getChartOptions = (
       },
       axisTick: {
         show: true,
-        interval: (index: number, value: string) => {
+        interval: (_: number, value: string) => {
           return value.endsWith(':00') && parseInt(value.split(':')[0]) % 2 === 0;
         },
       },
