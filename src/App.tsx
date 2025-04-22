@@ -50,14 +50,14 @@ const App: React.FC = () => {
 
   return (
     <div className='container mx-auto px-4'>
-      <div className='flex justify-between items-center mb-4 sticky top-0 bg-white z-[100]'>
+      <div className='flex sm:flex-row flex-col justify-between gap-y-3 items-center mb-4 sticky top-0 bg-white z-[100]'>
         <h1 className='text-2xl font-bold'>Runtime Report</h1>
-        <div className='flex gap-1'>
+        <div className='flex gap-1 flex-wrap'>
           <DateRangePicker
             dateRange={dateRange}
             onDateRangeChange={handleDateRangeChange}
           />
-          <button onClick={handleDownload} className='bg-none border-0'>
+          <button onClick={handleDownload} className='bg-none border-0 mx-auto'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='24'
@@ -77,12 +77,17 @@ const App: React.FC = () => {
           </button>
         </div>
       </div>
-      <RuntimeChart
-        data={runtimeData as RuntimeData}
-        dateRange={dateRange}
-        hours={hours}
-        days={days}
-      />
+      <div className="overflow-x-auto">
+
+      <div className='min-w-[700px] overflow-x-auto'>
+        <RuntimeChart
+          data={runtimeData as RuntimeData}
+          dateRange={dateRange}
+          hours={hours}
+          days={days}
+        />
+      </div>
+      </div>
     </div>
   );
 };
